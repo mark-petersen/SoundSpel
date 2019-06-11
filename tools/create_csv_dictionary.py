@@ -1,6 +1,6 @@
 '''
 Convert single-line format to csv format. Single line
-format is a single line, with only spaces in 
+format is a single line, with only spaces in
 between each word.
 
 usage: 
@@ -8,7 +8,6 @@ python create_csv_dictionary.py DIAMBG
 
 '''
 
-import numpy as np
 import string as str
 import sys
 
