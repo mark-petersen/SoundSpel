@@ -4,7 +4,7 @@ format is a single line, with only spaces in
 between each word.
 
 usage: 
-python create_csv_dictionary.py DIAMBG
+python DIAM_to_csv.py DIAMBG
 
 '''
 

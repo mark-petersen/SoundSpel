@@ -1,0 +1,1 @@
+../tools/create_soundSpell_dictionary.py
