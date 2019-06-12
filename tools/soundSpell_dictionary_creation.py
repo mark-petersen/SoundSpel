@@ -86,7 +86,7 @@ with open(wordFrequencyFile) as csv_file:
     f.write(
             "ID" + "," +
             "word" + "," +
-            "ssWord" + "," +
+            "SSword" + "," +
             "cmu1" + "," +
             "cmu2" + "," +
             "cmu3" + "," +
