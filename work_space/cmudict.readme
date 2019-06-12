@@ -10,3 +10,4 @@ grep '(4)' --color=never cmudict.dict > cmudict.dict_4
 
 I then removed the character-only lines from cmudict.dict_1.
 Then remove the (2) etc in vim with %s/(2)//g.
+And change first space to tab with %s/ /\t.
