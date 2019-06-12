@@ -1,0 +1,12 @@
+Notes by Mark Petersen:
+
+I split the file cmudict.dict into four, for the 
+first through fourth pronounciation:
+
+grep -v '(' cmudict.dict > cmudict.dict_1
+grep '(2)' --color=never cmudict.dict > cmudict.dict_2
+grep '(3)' --color=never cmudict.dict > cmudict.dict_3
+grep '(4)' --color=never cmudict.dict > cmudict.dict_4
+
+I then removed the character-only lines from cmudict.dict_1.
+Then remove the (2) etc in vim with %s/(2)//g.

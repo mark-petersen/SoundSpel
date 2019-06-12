@@ -41,12 +41,11 @@ parser.add_argument('-e', '--endID', dest='endID', type=int,
 args = parser.parse_args()
 
 soundSpellFile = 'DIAMBG.csv'
-pronounciationFile = 'cmudict_SPHINX_40.txt'
 wordFrequencyFile = 'b1386.txt'
 outFile = 'soundSpellDictionary.csv'
 
 soundSpellFile = 'DIAMBG.csv'
-pronounciationFile = 'cmudict.0.7a_SPHINX_40'
+pronounciationFile = 'cmudict.dict'
 wordFrequencyFile = 'b1386_small.txt'
 outFile = 'soundSpellDictionary_small.csv'
 
@@ -60,22 +59,22 @@ cmuDict1 = {}
 cmuDict2 = {}
 cmuDict3 = {}
 cmuDict4 = {}
-with open('cmudict.0.7a_SPHINX_40_1') as csv_file:
+with open('cmudict.dict_1') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter='\t')
     for row in csv_reader:
-        cmuDict1[row[0].lower()] = row[1]
-with open('cmudict.0.7a_SPHINX_40_2') as csv_file:
+        cmuDict1[row[0]] = row[1]
+with open('cmudict.dict_2') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter='\t')
     for row in csv_reader:
-        cmuDict2[row[0].lower()] = row[1]
-with open('cmudict.0.7a_SPHINX_40_3') as csv_file:
+        cmuDict2[row[0]] = row[1]
+with open('cmudict.dict_3') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter='\t')
     for row in csv_reader:
-        cmuDict3[row[0].lower()] = row[1]
-with open('cmudict.0.7a_SPHINX_40_4') as csv_file:
+        cmuDict3[row[0]] = row[1]
+with open('cmudict.dict_4') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter='\t')
     for row in csv_reader:
-        cmuDict4[row[0].lower()] = row[1]
+        cmuDict4[row[0]] = row[1]
 
 f = open(outFile, 'w')
 
