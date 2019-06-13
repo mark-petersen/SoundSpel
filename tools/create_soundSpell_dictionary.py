@@ -15,6 +15,7 @@ python create_csv_dictionary.py DIAMBG
 
 import argparse
 import csv
+import string as str
 
 parser = argparse.ArgumentParser(
     description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
@@ -41,13 +42,9 @@ parser.add_argument('-e', '--endID', dest='endID', type=int,
 args = parser.parse_args()
 
 soundSpellFile = 'DIAMBG.csv'
+pronounciationFile = 'cmudict.dict'
 wordFrequencyFile = 'b1386.txt'
 outFile = 'soundSpellDictionary.csv'
-
-soundSpellFile = 'DIAMBG.csv'
-pronounciationFile = 'cmudict.dict'
-wordFrequencyFile = 'b1386_small.txt'
-outFile = 'soundSpellDictionary_small.csv'
 
 ssDict = {}
 with open(soundSpellFile) as csv_file:
@@ -103,6 +100,16 @@ with open(wordFrequencyFile) as csv_file:
             ID = row[0]
             word = row[1].lower()
             ssWord = ssDict.get(word, '')
+            if ssWord=='':
+                if '-' in word:
+                    newWord = []
+                    wordSplit = str.split(word,'-')
+                    for iWord in wordSplit:
+                        print(iWord)
+                        newWord.append(ssDict.get(iWord, 'NOTRANSLATE'))
+                    newWord = str.join(newWord,'-')
+                    print(word,newWord)
+                
             cmu1 = cmuDict1.get(word, '')
             cmu2 = cmuDict2.get(word, '')
             cmu3 = cmuDict3.get(word, '')
