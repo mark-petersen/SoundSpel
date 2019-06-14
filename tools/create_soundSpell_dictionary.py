@@ -92,7 +92,7 @@ with open(wordFrequencyFile) as csv_file:
             "pronounciation3" + "," +
             "pronounciation4" + "," +
             "lemma" + "," +
-            "partOfSpeach" + "," +
+            "partOfSpeach" 
             "\n")
     f2.write(
             "percentCaps" + "," +
