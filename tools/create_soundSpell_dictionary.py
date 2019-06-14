@@ -44,7 +44,9 @@ args = parser.parse_args()
 soundSpellFile = 'DIAMBG.csv'
 pronounciationFile = 'cmudict.dict'
 wordFrequencyFile = 'b1386.txt'
-outFile = 'soundSpellDictionary.csv'
+outFile1 = 'soundSpellDictionary.csv'
+outFile2 = 'soundSpellDictionary_coca_only.csv'
+outFile3 = 'soundSpellDictionary_with_coca.csv'
 
 ssDict = {}
 with open(soundSpellFile) as csv_file:
@@ -73,20 +75,39 @@ with open('cmudict.dict_4') as csv_file:
     for row in csv_reader:
         cmuDict4[row[0]] = row[1]
 
-f = open(outFile, 'w')
+f1 = open(outFile1, 'w')
+f2 = open(outFile2, 'w')
+f3 = open(outFile3, 'w')
 
 cocaDict = {}
 with open(wordFrequencyFile) as csv_file:
     csv_reader2 = csv.reader(csv_file, delimiter='\t')
     line_count = 0
-    f.write(
+    f1.write(
             "ID" + "," +
             "word" + "," +
-            "SSword" + "," +
-            "cmu1" + "," +
-            "cmu2" + "," +
-            "cmu3" + "," +
-            "cmu4" + "," +
+            "SoundSpel" + "," +
+            "pronounciation1" + "," +
+            "pronounciation2" + "," +
+            "pronounciation3" + "," +
+            "pronounciation4" + "," +
+            "lemma" + "," +
+            "partOfSpeach" + "," +
+            "\n")
+    f2.write(
+            "percentCaps" + "," +
+            "cocaFreq" + "," +
+            "bncFreq" + "," +
+            "AmBritSpelling" +
+            "\n")
+    f3.write(
+            "ID" + "," +
+            "word" + "," +
+            "SoundSpel" + "," +
+            "pronounciation1" + "," +
+            "pronounciation2" + "," +
+            "pronounciation3" + "," +
+            "pronounciation4" + "," +
             "lemma" + "," +
             "partOfSpeach" + "," +
             "percentCaps" + "," +
@@ -105,10 +126,10 @@ with open(wordFrequencyFile) as csv_file:
                     newWord = []
                     wordSplit = str.split(word,'-')
                     for iWord in wordSplit:
-                        print(iWord)
+                        #print(iWord)
                         newWord.append(ssDict.get(iWord, 'NOTRANSLATE'))
                     newWord = str.join(newWord,'-')
-                    print(word,newWord)
+                    #print(word,newWord)
                 
             cmu1 = cmuDict1.get(word, '')
             cmu2 = cmuDict2.get(word, '')
@@ -120,7 +141,24 @@ with open(wordFrequencyFile) as csv_file:
             AmBritSpelling = row[5]
             cocaFreq = row[7]
             bncFreq = row[8]
-            f.write(
+            f1.write(
+                    ID + "," +
+                    word + "," +
+                    ssWord + "," +
+                    cmu1 + "," +
+                    cmu2 + "," +
+                    cmu3 + "," +
+                    cmu4 + "," +
+                    lemma + "," +
+                    partOfSpeach + 
+                    "\n")
+            f2.write(
+                    percentCaps + "," +
+                    cocaFreq + "," +
+                    bncFreq + "," +
+                    AmBritSpelling +
+                    "\n")
+            f3.write(
                     ID + "," +
                     word + "," +
                     ssWord + "," +
@@ -137,7 +175,9 @@ with open(wordFrequencyFile) as csv_file:
                     "\n")
         line_count += 1
 
-f.close()
+f1.close()
+f2.close()
+f3.close()
 
 # print("beginID %g",beginID)
 
