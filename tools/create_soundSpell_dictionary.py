@@ -87,33 +87,33 @@ with open(wordFrequencyFile) as csv_file:
             "ID" + "," +
             "word" + "," +
             "SoundSpel" + "," +
+            "lemma" + "," +
+            "partOfSpeach" + "," +
             "pronounciation1" + "," +
             "pronounciation2" + "," +
             "pronounciation3" + "," +
-            "pronounciation4" + "," +
-            "lemma" + "," +
-            "partOfSpeach" 
+            "pronounciation4" + 
             "\n")
     f2.write(
-            "percentCaps" + "," +
             "cocaFreq" + "," +
             "bncFreq" + "," +
+            "percentCaps" + "," +
             "AmBritSpelling" +
             "\n")
     f3.write(
             "ID" + "," +
             "word" + "," +
             "SoundSpel" + "," +
+            "lemma" + "," +
+            "partOfSpeach" + "," +
+            "cocaFreq" + "," +
+            "bncFreq" + "," +
+            "percentCaps" + "," +
+            "AmBritSpelling" + "," +
             "pronounciation1" + "," +
             "pronounciation2" + "," +
             "pronounciation3" + "," +
-            "pronounciation4" + "," +
-            "lemma" + "," +
-            "partOfSpeach" + "," +
-            "percentCaps" + "," +
-            "cocaFreq" + "," +
-            "bncFreq" + "," +
-            "AmBritSpelling" +
+            "pronounciation4" + 
             "\n")
 
     for row in csv_reader2:
@@ -145,33 +145,33 @@ with open(wordFrequencyFile) as csv_file:
                     ID + "," +
                     word + "," +
                     ssWord + "," +
+                    lemma + "," +
+                    partOfSpeach + "," +
                     cmu1 + "," +
                     cmu2 + "," +
                     cmu3 + "," +
-                    cmu4 + "," +
-                    lemma + "," +
-                    partOfSpeach + 
+                    cmu4 + 
                     "\n")
             f2.write(
-                    percentCaps + "," +
                     cocaFreq + "," +
                     bncFreq + "," +
+                    percentCaps + "," +
                     AmBritSpelling +
                     "\n")
             f3.write(
                     ID + "," +
                     word + "," +
                     ssWord + "," +
+                    lemma + "," +
+                    partOfSpeach + "," +
+                    cocaFreq + "," +
+                    bncFreq + "," +
+                    percentCaps + "," +
+                    AmBritSpelling +
                     cmu1 + "," +
                     cmu2 + "," +
                     cmu3 + "," +
-                    cmu4 + "," +
-                    lemma + "," +
-                    partOfSpeach + "," +
-                    percentCaps + "," +
-                    cocaFreq + "," +
-                    bncFreq + "," +
-                    AmBritSpelling +
+                    cmu4 + 
                     "\n")
         line_count += 1
 
