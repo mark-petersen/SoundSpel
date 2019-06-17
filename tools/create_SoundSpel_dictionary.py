@@ -1,55 +1,24 @@
 '''
-Convert single-line format to csv format. Single line
-format is a single line, with only spaces in
-between each word.
+This script starts with a word frequency list, and then adds look-ups from the DIAMBG SoundSpel file, and adds pronounciation from the cmu pronounciation dictionary.
 
 usage:
-python create_csv_dictionary.py DIAMBG
-
+python create_SoundSpel_dictionary.py
 '''
 
 #!/usr/bin/env python
 
-#from __future__ import absolute_import, division, print_function, \
-#    unicode_literals
-
-import argparse
 import csv
 import string as str
 
-parser = argparse.ArgumentParser(
-    description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
-
-parser.add_argument('-b', '--beginID', dest='beginID', type=int,
-                    required=False, default='1',
-                    help='First word ID for parsing, ie first row of the COCA file')
-parser.add_argument('-e', '--endID', dest='endID', type=int,
-                    required=False, default='100',
-                    help='Last word ID for parsing, ie last row of the COCA file')
-#parser.add_argument('-s', '--soundSpellFile', dest='soundSpellFile', type=str,
-#                    required=False, default='DIAMBG.csv')#,
-#                    #help='The name of the old SoundSpell file')
-#parser.add_argument('-p', '--pronounciationFile', dest='pronounciationFile', type=str,
-#                    required=False, default='cmudict_SPHINX_40.txt',
-#                    help='The name of the pronounciation file')
-#parser.add_argument('-c', '--wordFrequencyFile', dest='wordFrequencyFile', type=str,
-#                    required=False, default='b1386.txt',
-#                    help='The name of the word frequency file')
-#parser.add_argument('-o', '--outFile', dest='outFile', type=str,
-#                    required=False, default='soundSpellDictionary.csv',
-#                    help='The name of the output file')
-
-args = parser.parse_args()
-
-soundSpellFile = 'DIAMBG.csv'
+soundSpelFile = 'DIAMBG.csv'
 pronounciationFile = 'cmudict.dict'
 wordFrequencyFile = 'b1386.txt'
-outFile1 = 'soundSpellDictionary.csv'
-outFile2 = 'soundSpellDictionary_coca_only.csv'
-outFile3 = 'soundSpellDictionary_with_coca.csv'
+outFile1 = 'soundSpelDictionary.csv'
+outFile2 = 'soundSpelDictionary_coca_only.csv'
+outFile3 = 'soundSpelDictionary_with_coca.csv'
 
 ssDict = {}
-with open(soundSpellFile) as csv_file:
+with open(soundSpelFile) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     for row in csv_reader:
         ssDict[row[0]] = row[1]
